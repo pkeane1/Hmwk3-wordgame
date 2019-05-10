@@ -19,8 +19,8 @@ function isCorrectGuess(word,letter) {
 function getBlanks(word) {
     var blanks = [];
     for (var i = 0; i < word.length; i++) {
-    var underScore = "_";
-    blanks.push(underScore);
+    blanks[i] = "_";
+   
     }
     return blanks;
 }
@@ -136,7 +136,7 @@ function startNewRound(game) {
 //1.12 
 var wins = 0
 var losses = 0
-var myGame = setupGame(gameWords,wins,losses);
+var myGame = setupGame(gameWords,0,0);
 
 
 
@@ -151,8 +151,38 @@ var myGame = setupGame(gameWords,wins,losses);
 //     }
 // }
 
-document.getElementById("puzzle-state")
-puzzle.innerHTML = myGame.round.puzzleState.join(" ")
+var puzzle = document.getElementById("puzzle-state")
+innerHTML = myGame.round.puzzleState.join(" ")
 
 
- 
+
+document.addEventListener("keyup", gamePlay)
+function gamePlay(event){
+            console.log(event.key);
+
+            isCorrectGuess(myGame.round.word, gamePlay);
+            fillBlanks(myGame.round.puzzleState, myGame.round.puzzleState, gamePlay);
+            updateRound(myGame.round, gamePlay);
+            hasWon(myGame.round.puzzleState);
+            hasLost(myGame.round.guessesLeft);
+
+            if(isEndOfRound(myGame.round)) {
+                myGame = startNewRound(myGame)
+                myGame = setupRound(randomWord(gameWords));
+            }
+
+
+document.getElementById("puzzle-state").innerText = myGame.round.puzzleState;
+document.getElementById("wrong-guesses").innerText = myGame.round.wrongGuesses;
+
+document.getElementById("win-counter").innerText = myGame.wins;
+document.getElementById("loss-counter").innerText = myGame.losses;
+document.getElementById("guesses-left").innerText = myGame.round.guessesLeft;
+console.log(myGame);
+
+
+
+
+
+
+}
