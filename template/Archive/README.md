@@ -1,5 +1,5 @@
 # Word Guess Game (Browser)
-
+need to Debug JS
 <!-- TODO: add one sentence overview here of your progress -->
 
 ## Overview
@@ -8,5 +8,5 @@
 
 ## Functionality Breakdown
 <!-- TODO: update this to your screenshot, gif, etc. demonstrating functionality. add any additional explanation below -->
-[Screenshot of Game](word.png)
+[Screenshot of Game](Documents/Code_Class/word.png)
 
