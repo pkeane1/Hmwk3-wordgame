@@ -151,12 +151,10 @@ var myGame = setupGame(gameWords,0,0);
 //     }
 // }
 
-var puzzle = document.getElementById("puzzle-state")
-innerHTML = myGame.round.puzzleState.join(" ")
+var x = document.getElementById("puzzle-state")
+x.innerHTML = myGame.round.puzzleState.join(" ");
 
-
-
-document.addEventListener("keyup", gamePlay)
+document.addEventListener("keyup", gamePlay) 
 function gamePlay(event){
             console.log(event.key);
 
@@ -172,7 +170,7 @@ function gamePlay(event){
             }
 
 
-document.getElementById("puzzle-state").innerText = myGame.round.puzzleState;
+document.getElementById("puzzle-state").innerText = myGame.round.puzzleState(join(" "));
 document.getElementById("wrong-guesses").innerText = myGame.round.wrongGuesses;
 
 document.getElementById("win-counter").innerText = myGame.wins;
